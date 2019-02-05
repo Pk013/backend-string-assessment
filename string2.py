@@ -19,7 +19,13 @@
 
 def verbing(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    length = len(s)
+    if s[-3:] == 'ing':
+        s += 'ly'
+    else:
+        s += 'ing'
+    return s
+
 
 
 # E. not_bad
@@ -32,8 +38,11 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
     """Your code goes here.  Edit this docstring."""
-    return
-
+    snot = s.find('not')
+    sbad = s.find('bad')
+    if sbad > snot:
+        s = s.replace(s[snot:(sbad+3)], 'good')
+    return s
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -44,7 +53,22 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    alen = len(a)
+    blen = len(b)
+    if alen % 2 == 0:
+        aind == alen // 2
+    else:
+        aind == (alen // 2) + 1
+    if blen % 2 == 0:
+        bind == blen // 2
+    else:
+        bind == (blen // 2) + 1
+    afro = a[0:aind]
+    aback = a[aind:]
+    bfro = b[0:bind]
+    bback = b[bind:]
+    return afro + bfro + aback + bback
+    
 
 
 # Provided simple test() function used in main() to print
